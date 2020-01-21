@@ -1,9 +1,11 @@
 package com.example.myapp1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         btn_click_me.setOnClickListener {
             // your code to perform when the user clicks on the button
             Toast.makeText(this@MainActivity, "Hello World!", Toast.LENGTH_SHORT).show()
+        }
+        start_act.setOnClickListener {
+            val intent = Intent(applicationContext, TimeActivity::class.java)
+            startActivity(intent)
         }
 
     }
