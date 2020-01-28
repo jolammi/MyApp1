@@ -13,13 +13,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn_click_me = findViewById(R.id.btn_click_me) as Button
-        btn_click_me.setOnClickListener {
-            // your code to perform when the user clicks on the button
-            Toast.makeText(this@MainActivity, "Hello World!", Toast.LENGTH_SHORT).show()
+        var fabOpened = false
+        fab.setOnClickListener {
+            if (!fabOpened){
+                fabOpened = true
+                fab_map.animate().translationY(-resources.getDimension(R.dimen.standard_66))
+                fab_time.animate().translationY(-resources.getDimension(R.dimen.standard_116))
+
+            } else {
+                fabOpened = false
+                fab_map.animate().translationY(0f)
+                fab_time.animate().translationY(0f)
+            }
+
         }
-        start_act.setOnClickListener {
+
+        fab_time.setOnClickListener {
             val intent = Intent(applicationContext, TimeActivity::class.java)
+            startActivity(intent)
+        }
+
+        fab_map.setOnClickListener {
+
+            val intent = Intent(applicationContext, MapActivity::class.java)
             startActivity(intent)
         }
     }
