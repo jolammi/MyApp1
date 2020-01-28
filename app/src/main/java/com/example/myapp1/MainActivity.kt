@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             if (!fabOpened){
                 fabOpened = true
-                fab_map.animate().translationY(-resources.getDimension(R.dimen.standard_66))
-                fab_time.animate().translationY(-resources.getDimension(R.dimen.standard_116))
+                fab_time.animate().translationY(-resources.getDimension(R.dimen.standard_66))
+                fab_map.animate().translationY(-resources.getDimension(R.dimen.standard_116))
 
             } else {
                 fabOpened = false
@@ -38,5 +38,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, MapActivity::class.java)
             startActivity(intent)
         }
+
+        val data = arrayOf("Oulu", "Helsinki", "Tampere")
+
+        val reminderAdapter = ReminderAdapter(applicationContext, data)
+        list.adapter = reminderAdapter
     }
 }
