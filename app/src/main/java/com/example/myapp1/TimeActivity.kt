@@ -30,8 +30,8 @@ class TimeActivity : AppCompatActivity() {
                 datePicker.year,
                 datePicker.month,
                 datePicker.dayOfMonth,
-                timePicker.currentHour,
-                timePicker.currentMinute
+                timePicker.hour,
+                timePicker.minute
             )
 
             if  ((et_message.text.toString() != "") &&
